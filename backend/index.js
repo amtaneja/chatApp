@@ -53,7 +53,7 @@ io.on('connection', socket => {
 
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"))
+    res.sendFile(path.join(staticPath, "index.html"))
 })
 
 server.listen(5000, () => {
