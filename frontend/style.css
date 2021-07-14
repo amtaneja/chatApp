@@ -81,6 +81,7 @@ nav {
   border-radius: 6px;
   height: 36px;
   margin: 0 3px;
+  font-family: nunito;
 }
 
 .btn:hover {
