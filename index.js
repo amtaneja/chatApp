@@ -56,6 +56,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(staticPath, "index.html"))
 })
 
-server.listen(process.env.port || 5000, () => {
+server.listen(process.env.PORT || 5000, () => {
     console.log('server is running at port 5000')
 })
