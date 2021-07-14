@@ -1,12 +1,18 @@
 //node server which will handle socket io connection
+const path = require('path')
+const express = require('express')
+const app = express()
+const server = require('http').createServer(app)
 
-const io = require('socket.io')(process.env.port || 5000, {
+const io = require('socket.io')(server, {
     cors: {
         origin: '*'
     }
 })
 
 const users = {}
+const staticPath = path.join(__dirname, "public")
+app.use(express.static(staticPath))
 
 //predefined on connection it will listen all socket connection like aman ram krishna 
 //different user are listen through io.on
@@ -43,4 +49,13 @@ io.on('connection', socket => {
     })
 
 
+})
+
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"))
+})
+
+server.listen(5000, () => {
+    console.log('server is running at port 5000')
 })
